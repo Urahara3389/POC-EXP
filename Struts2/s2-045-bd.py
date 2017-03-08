@@ -1,9 +1,12 @@
 #! /usr/bin/env python
 # encoding:utf-8
 import urllib2
+import ssl
 from poster.encode import multipart_encode
 from poster.streaminghttp import register_openers
 from sys import argv
+
+ssl._create_default_https_context = ssl._create_unverified_context
 
 for url in open(argv[1]).read().split('\n'):
     try:
